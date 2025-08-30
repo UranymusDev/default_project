@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__archon__health_check",
+      "mcp__archon__manage_project",
+      "mcp__archon__manage_task",
+      "mcp__archon__create_task",
+      "mcp__archon__update_task",
+      "WebSearch",
+      "mcp__archon__perform_rag_query",
+      "mcp__archon__search_code_examples",
+      "Bash(npm run build:*)",
+      "mcp__archon__get_available_sources",
+      "mcp__archon__create_document",
+      "mcp__archon__update_document",
+      "mcp__archon__list_projects",
+      "mcp__archon__get_project",
+      "mcp__archon__list_tasks",
+      "mcp__archon__list_documents",
+      "mcp__archon__get_document",
+      "mcp__perplexity-mcp__perplexity_search_web",
+      "Read(C:\\Users\\Julian\\.claude/**)",
+      "mcp__archon__perform_rag_query",
+      "Read(D:\\dev\\WaveRiderAI\\WaveRiderAI\\frontend\\waverider-ai-frontend\\src\\theme/**)",
+      "Read(D:\\dev\\WaveRiderAI\\WaveRiderAI\\frontend\\waverider-ai-frontend\\src\\theme/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
