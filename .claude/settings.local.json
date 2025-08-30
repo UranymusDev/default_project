@@ -19,10 +19,7 @@
       "mcp__archon__list_documents",
       "mcp__archon__get_document",
       "mcp__perplexity-mcp__perplexity_search_web",
-      "Read(C:\\Users\\Julian\\.claude/**)",
-      "mcp__archon__perform_rag_query",
-      "Read(D:\\dev\\WaveRiderAI\\WaveRiderAI\\frontend\\waverider-ai-frontend\\src\\theme/**)",
-      "Read(D:\\dev\\WaveRiderAI\\WaveRiderAI\\frontend\\waverider-ai-frontend\\src\\theme/**)"
+      "mcp__archon__perform_rag_query"
     ],
     "deny": [],
     "ask": []
