@@ -320,7 +320,7 @@ main() {
     local target_dir="${2:-$DEFAULT_TARGET_DIR}"
     
     # Show help if requested
-    if [[ "$1" == "-h" || "$1" == "--help" ]]; then
+    if [[ "$1" == "-h" || "$1" == "--help" || "$1" == "/?" ]]; then
         show_usage
         exit 0
     fi

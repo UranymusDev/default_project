@@ -325,7 +325,7 @@ function Show-Instructions($projectName, $projectDir) {
     Write-Host "  🎭 GSAP animations and scroll triggers"
     Write-Host "  🚀 Express.js backend with TypeScript"
     Write-Host "  📱 Responsive design with dark/light modes"
-    Write-Host "  🧪 Testing setup with Jest & Testing Library"
+    Write-Host "  🧪 Testing setup with Jest and Testing Library"
     Write-Host "  📚 Storybook for component documentation"
     Write-Host ""
     Write-Host "Happy coding! 🚀" -ForegroundColor Green
