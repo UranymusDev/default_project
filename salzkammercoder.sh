@@ -260,7 +260,7 @@ EOF
     
     # Install dependencies
     print_status "Installing dependencies (this may take a few minutes)..."
-    if ! npm install; then
+    if ! npm install --legacy-peer-deps; then
         print_error "Failed to install dependencies. Please check your internet connection and try again."
         exit 1
     fi

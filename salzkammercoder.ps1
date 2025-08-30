@@ -271,7 +271,7 @@ storybook-static
         
         # Install dependencies
         Write-Status "Installing dependencies (this may take a few minutes)..."
-        $npmResult = npm install
+        $npmResult = npm install --legacy-peer-deps
         if ($LASTEXITCODE -ne 0) {
             Write-Error "Failed to install dependencies. Please check your internet connection and try again."
             exit 1
