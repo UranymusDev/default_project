@@ -88,9 +88,9 @@ function ThemeSwitcher() {
 }
 ```
 
-## 🎬 Animation System
+## 🎬 Pure GSAP Animation System
 
-Integrated **GSAP** and **Framer Motion** for rich animations:
+Comprehensive **GSAP-only** animation system with utility classes, hooks, and advanced features:
 
 ### GSAP Utility Classes
 ```tsx
@@ -105,19 +105,47 @@ Integrated **GSAP** and **Framer Motion** for rich animations:
 <Box className="gsap-scale-in">Scale In</Box>
 ```
 
-### Animation Hook
+### React Hook for Animations
 ```tsx
 import { useGSAPAnimations } from 'lib/theme/hooks';
+import { useEffect, useRef } from 'react';
 
 function AnimatedComponent() {
   const { fadeInUp, slideInLeft, scaleIn } = useGSAPAnimations();
+  const elementRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    fadeInUp(elementRef.current);
+  }, []);
   
   return (
-    <motion.div {...fadeInUp}>
+    <div ref={elementRef}>
       Animated content
-    </motion.div>
+    </div>
   );
 }
+```
+
+### Advanced GSAP Features
+```tsx
+import { 
+  animateElement, 
+  createScrollAnimation, 
+  createMagneticEffect,
+  typeWriter 
+} from 'lib/animations';
+
+// Scroll-triggered animations
+createScrollAnimation('.hero-section', 'fadeInUp', {
+  start: 'top 80%',
+  toggleActions: 'play none none reverse'
+});
+
+// Magnetic button effect
+createMagneticEffect('.magnetic-btn', 0.3);
+
+// Typewriter text effect
+typeWriter('.typewriter-text', 'Hello, GSAP World!', 2);
 ```
 
 ## 🔧 Development Scripts
@@ -260,8 +288,7 @@ npm run start:full
 - ✅ **React 19** with latest features
 - ✅ **Chakra UI v2** with custom theming
 - ✅ **TypeScript** strict configuration
-- ✅ **GSAP 3.12** for animations
-- ✅ **Framer Motion** for React animations
+- ✅ **GSAP 3.12** with ScrollTrigger & TextPlugin
 - ✅ **React Hook Form** + Zod validation
 - ✅ **TanStack Query** for data fetching
 - ✅ **6 Color Schemes** with dark/light modes
@@ -301,9 +328,11 @@ npm run start:full
 3. Styles will be applied automatically
 
 ### GSAP Animations
-1. Add utility classes in `lib/theme/index.ts`
-2. Create reusable animations in `lib/animations.ts`
-3. Use `useGSAPAnimations()` hook for patterns
+1. Import from `lib/animations.ts` for advanced features
+2. Use utility classes for quick animations
+3. Use `useGSAPAnimations()` hook for React integration
+4. ScrollTrigger for scroll-based animations
+5. Custom magnetic effects and typewriter text
 
 ## 📚 Resources
 

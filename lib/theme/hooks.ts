@@ -64,47 +64,66 @@ export function useThemeScheme() {
   };
 }
 
-// Animation utilities hook
+// GSAP Animation hook
 export function useGSAPAnimations() {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: 'power2.out' },
+  const { useEffect, useRef } = require('react');
+  const gsap = require('gsap');
+
+  // Helper to create refs for elements
+  const createAnimationRef = () => useRef<HTMLElement>(null);
+
+  // Animation functions that work with refs
+  const fadeInUp = (element: HTMLElement | null, delay: number = 0) => {
+    if (!element) return;
+    gsap.fromTo(element, 
+      { opacity: 0, y: 30 },
+      { opacity: 1, y: 0, duration: 0.6, delay, ease: 'power2.out' }
+    );
   };
 
-  const slideInLeft = {
-    initial: { opacity: 0, x: -50 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.6, ease: 'power2.out' },
+  const slideInLeft = (element: HTMLElement | null, delay: number = 0) => {
+    if (!element) return;
+    gsap.fromTo(element,
+      { opacity: 0, x: -50 },
+      { opacity: 1, x: 0, duration: 0.6, delay, ease: 'power2.out' }
+    );
   };
 
-  const slideInRight = {
-    initial: { opacity: 0, x: 50 },
-    animate: { opacity: 1, x: 0 },
-    transition: { duration: 0.6, ease: 'power2.out' },
+  const slideInRight = (element: HTMLElement | null, delay: number = 0) => {
+    if (!element) return;
+    gsap.fromTo(element,
+      { opacity: 0, x: 50 },
+      { opacity: 1, x: 0, duration: 0.6, delay, ease: 'power2.out' }
+    );
   };
 
-  const scaleIn = {
-    initial: { opacity: 0, scale: 0.8 },
-    animate: { opacity: 1, scale: 1 },
-    transition: { duration: 0.6, ease: 'back.out(1.7)' },
+  const scaleIn = (element: HTMLElement | null, delay: number = 0) => {
+    if (!element) return;
+    gsap.fromTo(element,
+      { opacity: 0, scale: 0.8 },
+      { opacity: 1, scale: 1, duration: 0.6, delay, ease: 'back.out(1.7)' }
+    );
   };
 
-  const stagger = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      },
-    },
+  const staggerChildren = (elements: HTMLElement[], animation: 'fadeInUp' | 'slideInLeft' | 'slideInRight' | 'scaleIn' = 'fadeInUp') => {
+    elements.forEach((el, index) => {
+      const delay = index * 0.1;
+      switch (animation) {
+        case 'fadeInUp': fadeInUp(el, delay); break;
+        case 'slideInLeft': slideInLeft(el, delay); break;
+        case 'slideInRight': slideInRight(el, delay); break;
+        case 'scaleIn': scaleIn(el, delay); break;
+      }
+    });
   };
 
   return {
+    createAnimationRef,
     fadeInUp,
     slideInLeft,
     slideInRight,
     scaleIn,
-    stagger,
+    staggerChildren,
   };
 }
 

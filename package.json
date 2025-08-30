@@ -28,7 +28,6 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
-    "framer-motion": "^10.16.16",
     "gsap": "^3.12.5",
     "next": "15.1.0",
     "react": "19.0.0",
